@@ -38,7 +38,6 @@ class users(Resource):
         CREATE_USER_SQL = 'INSERT INTO users VALUE(%s, %s, %s, %s)'
         _check_exist_user = cur.execute(CHECK_EXIST_USER_SQL, (content_body_dict["user_name"], content_body_dict["passwd"],))
         cur.execute(CHECK_EXIST_USER_SQL, (content_body_dict["user_name"], content_body_dict["passwd"], content_body_dict["device_id"], content_body_dict["beacon_id"],))
-
         if _check_exist_user is 0:
             return "", status.HTTP_406_NOT_ACCEPTABLE
         else:
@@ -70,4 +69,4 @@ class users(Resource):
 
 api.add_resource(users, '/users')
 
-app.run(host='0.0.0.0', debug=True)
+app.run(host='0.0.0.0', port=80, debug=True)
