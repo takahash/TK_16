@@ -16,10 +16,11 @@ class NGsetting :UIViewController{
     
     @IBOutlet weak var ngSwich: UISwitch!
     
+    @IBOutlet weak var userNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         userNameLabel.text = NSUserDefaults.standardUserDefaults().stringForKey("name")
         if ngSwich.on {
             setNG("NG")
         }else{
