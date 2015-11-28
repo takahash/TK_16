@@ -12,7 +12,8 @@ ${demo.css}
 $(function () {
 
   var date = new Date(); 
-  today = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate();
+  var today = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate();
+  var hours = date.getHours();
 
   /*
   window.onload = function onLoad() {
@@ -47,9 +48,25 @@ $(function () {
     return null;
   }
   
-  //ユーザーの本数データの取得
+  //////////// /ユーザーの本数データの取得 /////////////////
+
   var param = GetQueryString();
   var user_name = param["user_name"];
+
+  //現時刻までのタバコの本数を0で初期化
+  var smoke_num = []; 
+  for (var i = 0; i < hours; i++){
+    smoke_num[i] = 0;
+  }
+
+  $.get("api", { user_name: user_name }, function(data){
+    //何らかの処理
+    for () //クエリの数だけ
+      smoke_num[時刻]++;
+    }
+  };)
+
+  /////////////////////////////////////////////////////////
 
   $('#container').highcharts({
         title: {
