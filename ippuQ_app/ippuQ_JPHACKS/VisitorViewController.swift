@@ -48,11 +48,8 @@ class VisitorViewController: UIViewController,NSURLSessionDataDelegate {
     
     
     @IBAction func signInButton(sender: AnyObject) {
-        let params: [String: AnyObject] = [
-            "user":"\(TextBoxName.text!)",
-            "passwd":"\(TextBoxPass.text!)"
-        ]
-        postServer(params,path:"login"){statusCode,error in
+        let url = "https://redimpulz.cybozu.com/k/v1/records.json?totalCount=true&app=14&query=name=%22\(TextBoxName.text!)%22%20and%20passwd=%22\(TextBoxPass.text!)%22"
+        getServer(url){statusCode,error in
             if let statusCode = statusCode {
                 if statusCode == 200{
                     print("サインイン成功")
@@ -71,14 +68,25 @@ class VisitorViewController: UIViewController,NSURLSessionDataDelegate {
     }
     @IBAction func signUpButton(sender: AnyObject) {
         let params: [String: AnyObject] = [
-            "user":"\(TextBoxName.text!)",
-            "passwd":"\(TextBoxPass.text!)",
-            "bc_id":"eeeeeeexit",
-            "device_token":"\(readToken())"
+            "app": 14,
+            "record": [
+                "name": [
+                    "value":"\(TextBoxName.text!)"
+                ],
+                "passwd": [
+                    "value":"\(TextBoxPass.text!)"
+                ],
+                "device_token": [
+                   "value": readToken()
+                ],
+                "beacon_id": [
+                    "value": "0001"
+                ]
+            ]
         ]
-        postServer(params, path:"users"){statusCode,error in
+        postServer(params,url:"https://redimpulz.cybozu.com/k/v1/record.json",method:"POST"){statusCode,error in
             if let statusCode = statusCode {
-                if statusCode == 201{
+                if statusCode == 200{
                     print("ユーザ作成成功")
                     self.alert("ユーザ登録完了", body: "良い喫煙ライフを")
                 }else{
@@ -95,15 +103,16 @@ class VisitorViewController: UIViewController,NSURLSessionDataDelegate {
     }
     
     
-    func postServer(params:[String:AnyObject],path:String, completionHandler: (Int?, NSError?) -> Void ) -> NSURLSessionTask{
+    func postServer(params:[String:AnyObject],url:String,method:String, completionHandler: (Int?, NSError?) -> Void ) -> NSURLSessionTask{
         // create the url-request
-        let urlString = "http://210.140.162.64:10080/\(path)"
+        let urlString = url
         let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
         
         // set the method(HTTP-POST)
-        request.HTTPMethod = "POST"
+        request.HTTPMethod = method
         // set the header(s)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("usww5ikOCMm5Xbut97srqBYkHmcWLInbz3eLiCfL", forHTTPHeaderField: "X-Cybozu-API-Token")
         
         //        // set the request-body(JSON)
         //        let params: [String: AnyObject] = [
@@ -114,23 +123,24 @@ class VisitorViewController: UIViewController,NSURLSessionDataDelegate {
         print(params)
         do{
             request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.PrettyPrinted)
+            print(request.HTTPBody)
         }catch{
         }
         
         // use NSURLSessionDataTask
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {data, response, error in
-            if (error == nil) {
-                let result = NSString(data:data! , encoding: NSUTF8StringEncoding)!
-                if let httpResponse = response as? NSHTTPURLResponse {
-                    print(httpResponse.statusCode)
-                    completionHandler(httpResponse.statusCode, nil)
-                    return
-                } else {
-                    assertionFailure("unexpected response")
+            do {
+                let dict = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
+
+                
+                if(dict["errors"] == nil){
+                    completionHandler(200, nil)
+                }else{
+                    completionHandler(400, nil)
                 }
-                print(result)
-            } else {
-                print(error)
+                return
+                
+            } catch {
             }
         })
         task.resume()
@@ -139,6 +149,41 @@ class VisitorViewController: UIViewController,NSURLSessionDataDelegate {
         
         
     }
+    
+    func getServer(url:String,completionHandler: (Int?, NSError?) -> Void ) -> NSURLSessionTask{
+        // create the url-request
+        let urlString = url
+        let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+        
+        // set the method(HTTP-POST)
+        request.HTTPMethod = "GET"
+        // set the header(s)
+        request.addValue("usww5ikOCMm5Xbut97srqBYkHmcWLInbz3eLiCfL", forHTTPHeaderField: "X-Cybozu-API-Token")
+        
+    
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {data, response, error in
+            do {
+                let dict = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! NSDictionary
+                var totalCount = dict["totalCount"]
+                print(totalCount!)
+                if(totalCount as! String == "1"){
+                    completionHandler(200, nil)
+                }else{
+                    completionHandler(400, nil)
+                }
+                return
+                
+            } catch {
+            }
+        })
+        task.resume()
+        return task
+        
+        
+        
+    }
+
+    
     
     
     func URLSessionDidFinishEventsForBackgroundURLSession(session: NSURLSession) {
