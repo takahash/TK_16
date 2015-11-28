@@ -8,5 +8,5 @@ RUN pip install pyapns service_identity supervisor
 ADD start_twisted.sh ./
 ADD supervisord.conf /etc/supervisord.conf
 
-EXPORE 80
+EXPOSE 80
 CMD ["supervisord"]
