@@ -514,6 +514,7 @@
 				7B4110271C0952FC00C0BA82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B4110281C0952FC00C0BA82 /* Build configuration list for PBXNativeTarget "ippuQ_JPHACKSTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +523,7 @@
 				7B41102A1C0952FC00C0BA82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B41102B1C0952FC00C0BA82 /* Build configuration list for PBXNativeTarget "ippuQ_JPHACKSUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +532,7 @@
 				7B41102D1C0952FC00C0BA82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
