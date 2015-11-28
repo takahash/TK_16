@@ -17,13 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLJ-pD-vH8">
-                                <rect key="frame" x="82" y="210" width="158" height="30"/>
-                                <state key="normal" title="START SCAN"/>
-                                <connections>
-                                    <action selector="stopScan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="huE-fM-BIJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9S-HZ-R0N">
                                 <rect key="frame" x="144" y="286" width="34" height="30"/>
                                 <state key="normal" title="write"/>
@@ -42,18 +35,11 @@
                                     <navigationItem title="Connect" id="ak3-9W-rbu"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QKe-Mw-JKm">
-                                <rect key="frame" x="92" y="496" width="67" height="64"/>
-                                <state key="normal" title="Button" image="flame"/>
-                                <connections>
-                                    <segue destination="VmX-Ok-N9v" kind="show" id="oCo-vb-htp"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAc-uD-xkQ">
                                 <rect key="frame" x="167" y="496" width="70" height="64"/>
                                 <state key="normal" title="Button" image="gear"/>
                                 <connections>
-                                    <segue destination="z0y-r6-A4W" kind="show" id="Zjm-E4-VEd"/>
+                                    <segue destination="z0y-r6-A4W" kind="show" animates="NO" id="Zjm-E4-VEd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mo-oa-6En">
@@ -64,7 +50,14 @@
                                 <rect key="frame" x="15" y="496" width="69" height="64"/>
                                 <state key="normal" title="Button" image="magnifyingglass"/>
                                 <connections>
-                                    <segue destination="VmX-Ok-N9v" kind="show" id="lFV-dP-Tfu"/>
+                                    <segue destination="VmX-Ok-N9v" kind="show" animates="NO" id="lFV-dP-Tfu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLJ-pD-vH8">
+                                <rect key="frame" x="83" y="329" width="156" height="43"/>
+                                <state key="normal" title="START SCAN" image="Connect"/>
+                                <connections>
+                                    <action selector="stopScan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="huE-fM-BIJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -121,16 +114,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dA-Fs-pir">
-                                <rect key="frame" x="171" y="338" width="90" height="30"/>
-                                <state key="normal" title="sign up"/>
-                                <connections>
-                                    <action selector="signUpButton:" destination="nta-9g-hor" eventType="touchUpInside" id="etQ-x1-i9r"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-PC-oRq">
-                                <rect key="frame" x="34" y="338" width="77" height="30"/>
-                                <state key="normal" title="sign in"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-PC-oRq">
+                                <rect key="frame" x="174" y="329" width="107" height="32"/>
+                                <state key="normal" title="sign in" image="Login"/>
                                 <connections>
                                     <action selector="signInButton:" destination="nta-9g-hor" eventType="touchUpInside" id="ybR-M7-W8y"/>
                                 </connections>
@@ -158,6 +144,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dA-Fs-pir">
+                                <rect key="frame" x="47" y="331" width="109" height="30"/>
+                                <state key="normal" title="sign up" image="signUp"/>
+                                <connections>
+                                    <action selector="signUpButton:" destination="nta-9g-hor" eventType="touchUpInside" id="etQ-x1-i9r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -225,19 +218,15 @@
                                 <rect key="frame" x="20" y="171" width="80" height="30"/>
                                 <state key="normal" title="アカウント"/>
                                 <connections>
-                                    <segue destination="nta-9g-hor" kind="show" id="9Rz-1B-06t"/>
+                                    <segue destination="nta-9g-hor" kind="show" animates="NO" id="9Rz-1B-06t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ho-Cl-gDr">
                                 <rect key="frame" x="92" y="496" width="67" height="64"/>
                                 <state key="normal" title="Button" image="flame"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="KIq-iI-TRh"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="KIq-iI-TRh"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8f-f6-StE">
-                                <rect key="frame" x="167" y="496" width="70" height="64"/>
-                                <state key="normal" title="Button" image="gear"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-R2-ECz">
                                 <rect key="frame" x="241" y="496" width="65" height="64"/>
@@ -247,13 +236,14 @@
                                 <rect key="frame" x="15" y="496" width="69" height="64"/>
                                 <state key="normal" title="Button" image="magnifyingglass"/>
                                 <connections>
-                                    <segue destination="VmX-Ok-N9v" kind="show" id="ZCY-Fj-KUT"/>
+                                    <segue destination="VmX-Ok-N9v" kind="showDetail" animates="NO" id="ZCY-Fj-KUT"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="setting" image="gear" id="dMq-73-dSn"/>
+                    <navigationItem key="navigationItem" id="nyo-xl-aZ0"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="ngSwich" destination="G9C-Tg-yjB" id="sRq-2Q-sgI"/>
@@ -293,23 +283,19 @@
                                 <rect key="frame" x="92" y="496" width="67" height="64"/>
                                 <state key="normal" title="Button" image="flame"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="8vT-D2-5WG"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="8vT-D2-5WG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmH-74-3gw">
                                 <rect key="frame" x="167" y="496" width="70" height="64"/>
                                 <state key="normal" title="Button" image="gear"/>
                                 <connections>
-                                    <segue destination="z0y-r6-A4W" kind="show" id="XSH-lB-0m4"/>
+                                    <segue destination="z0y-r6-A4W" kind="show" animates="NO" id="XSH-lB-0m4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaN-Y5-i1l">
                                 <rect key="frame" x="241" y="496" width="65" height="64"/>
                                 <state key="normal" title="Button" image="booklet"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0Z-pL-Feb">
-                                <rect key="frame" x="15" y="496" width="69" height="64"/>
-                                <state key="normal" title="Button" image="magnifyingglass"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -323,14 +309,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Connect" width="784" height="248"/>
+        <image name="Login" width="418" height="144"/>
         <image name="booklet" width="64" height="64"/>
         <image name="flame" width="64" height="64"/>
         <image name="gear" width="64" height="64"/>
         <image name="magnifyingglass" width="64" height="64"/>
+        <image name="signUp" width="586" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZCY-Fj-KUT"/>
-        <segue reference="XSH-lB-0m4"/>
         <segue reference="8vT-D2-5WG"/>
+        <segue reference="ZCY-Fj-KUT"/>
+        <segue reference="Zjm-E4-VEd"/>
     </inferredMetricsTieBreakers>
 </document>
