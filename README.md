@@ -55,8 +55,11 @@ ippuQは、通信機能を備えたライター（以下、ippuQライター）�
 ### koshianでスマートフォンと通信できるスマートライター
 
 * koshianの周辺回路
+
 ![ippuQ_schematics](./materials/sch.png)
+
 ![ippuQ_pcb_a](./materials/koshian_a.jpg)
+
 ![ippuQ_pcb_b](./materials/koshian_b.jpg)
 
 * ライターケースの設計・制作
