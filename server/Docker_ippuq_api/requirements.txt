@@ -1,0 +1,7 @@
+Flask==0.10.1
+Flask-API==0.6.4
+Flask-RESTful==0.3.4
+pyapns==0.4.1
+requests==2.8.1
+supervisor
+PyMySQL==0.6.7

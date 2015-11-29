@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CoL-KE-pfT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -17,13 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLJ-pD-vH8">
-                                <rect key="frame" x="82" y="210" width="158" height="30"/>
-                                <state key="normal" title="START SCAN"/>
-                                <connections>
-                                    <action selector="stopScan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="huE-fM-BIJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9S-HZ-R0N">
                                 <rect key="frame" x="144" y="286" width="34" height="30"/>
                                 <state key="normal" title="write"/>
@@ -42,6 +35,31 @@
                                     <navigationItem title="Connect" id="ak3-9W-rbu"/>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAc-uD-xkQ">
+                                <rect key="frame" x="167" y="496" width="70" height="64"/>
+                                <state key="normal" title="Button" image="gear"/>
+                                <connections>
+                                    <segue destination="z0y-r6-A4W" kind="show" animates="NO" id="Zjm-E4-VEd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mo-oa-6En">
+                                <rect key="frame" x="241" y="496" width="65" height="64"/>
+                                <state key="normal" title="Button" image="booklet"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFP-gu-f0d">
+                                <rect key="frame" x="15" y="496" width="69" height="64"/>
+                                <state key="normal" title="Button" image="magnifyingglass"/>
+                                <connections>
+                                    <segue destination="VmX-Ok-N9v" kind="show" animates="NO" id="lFV-dP-Tfu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLJ-pD-vH8">
+                                <rect key="frame" x="83" y="329" width="156" height="43"/>
+                                <state key="normal" title="START SCAN" image="Connect"/>
+                                <connections>
+                                    <action selector="stopScan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="huE-fM-BIJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -54,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1282" y="428"/>
+            <point key="canvasLocation" x="1386" y="416"/>
         </scene>
         <!--login-->
         <scene sceneID="vBb-pG-jZm">
@@ -96,16 +114,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dA-Fs-pir">
-                                <rect key="frame" x="171" y="338" width="90" height="30"/>
-                                <state key="normal" title="sign up"/>
-                                <connections>
-                                    <action selector="signUpButton:" destination="nta-9g-hor" eventType="touchUpInside" id="etQ-x1-i9r"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-PC-oRq">
-                                <rect key="frame" x="34" y="338" width="77" height="30"/>
-                                <state key="normal" title="sign in"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-PC-oRq">
+                                <rect key="frame" x="174" y="329" width="107" height="32"/>
+                                <state key="normal" title="sign in" image="Login"/>
                                 <connections>
                                     <action selector="signInButton:" destination="nta-9g-hor" eventType="touchUpInside" id="ybR-M7-W8y"/>
                                 </connections>
@@ -133,6 +144,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dA-Fs-pir">
+                                <rect key="frame" x="47" y="331" width="109" height="30"/>
+                                <state key="normal" title="sign up" image="signUp"/>
+                                <connections>
+                                    <action selector="signUpButton:" destination="nta-9g-hor" eventType="touchUpInside" id="etQ-x1-i9r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -175,19 +193,19 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSi-xU-PJ6">
                                 <rect key="frame" x="178" y="175" width="142" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ライター" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vc-Ux-dml">
                                 <rect key="frame" x="20" y="226" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVs-gc-y1b">
                                 <rect key="frame" x="178" y="225" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G9C-Tg-yjB">
@@ -200,13 +218,32 @@
                                 <rect key="frame" x="20" y="171" width="80" height="30"/>
                                 <state key="normal" title="アカウント"/>
                                 <connections>
-                                    <segue destination="nta-9g-hor" kind="show" id="9Rz-1B-06t"/>
+                                    <segue destination="nta-9g-hor" kind="show" animates="NO" id="9Rz-1B-06t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ho-Cl-gDr">
+                                <rect key="frame" x="92" y="496" width="67" height="64"/>
+                                <state key="normal" title="Button" image="flame"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="KIq-iI-TRh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJg-R2-ECz">
+                                <rect key="frame" x="241" y="496" width="65" height="64"/>
+                                <state key="normal" title="Button" image="booklet"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e29-F7-ggg">
+                                <rect key="frame" x="15" y="496" width="69" height="64"/>
+                                <state key="normal" title="Button" image="magnifyingglass"/>
+                                <connections>
+                                    <segue destination="VmX-Ok-N9v" kind="showDetail" animates="NO" id="ZCY-Fj-KUT"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="setting" id="dMq-73-dSn"/>
+                    <tabBarItem key="tabBarItem" title="setting" image="gear" id="dMq-73-dSn"/>
+                    <navigationItem key="navigationItem" id="nyo-xl-aZ0"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="ngSwich" destination="G9C-Tg-yjB" id="sRq-2Q-sgI"/>
@@ -217,7 +254,7 @@
             </objects>
             <point key="canvasLocation" x="1042" y="1154"/>
         </scene>
-        <!--Map-->
+        <!--Map View Controller-->
         <scene sceneID="Ww0-6q-TMc">
             <objects>
                 <viewController id="VmX-Ok-N9v" customClass="MapViewController" customModule="ippuQ_JPHACKS" customModuleProvider="target" sceneMemberID="viewController">
@@ -229,15 +266,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G4b-Rl-fbm">
-                                <rect key="frame" x="0.0" y="38" width="320" height="530"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xF2-nd-o9K">
+                                <rect key="frame" x="92" y="496" width="67" height="64"/>
+                                <state key="normal" title="Button" image="flame"/>
                                 <connections>
-                                    <outlet property="delegate" destination="VmX-Ok-N9v" id="Rsd-fM-qOg"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="8vT-D2-5WG"/>
                                 </connections>
-                            </webView>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmH-74-3gw">
+                                <rect key="frame" x="167" y="496" width="70" height="64"/>
+                                <state key="normal" title="Button" image="gear"/>
+                                <connections>
+                                    <segue destination="z0y-r6-A4W" kind="show" animates="NO" id="XSH-lB-0m4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaN-Y5-i1l">
+                                <rect key="frame" x="241" y="496" width="65" height="64"/>
+                                <state key="normal" title="Button" image="booklet"/>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CQ7-K9-KGx">
+                                <rect key="frame" x="0.0" y="44" width="320" height="386"/>
+                            </mapView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PrC-hm-3zU">
-                                <rect key="frame" x="0.0" y="-6" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="近くの喫煙所" id="UJU-gh-3VR"/>
                                 </items>
@@ -245,35 +296,29 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="Bnv-Pv-ILO"/>
+                    <tabBarItem key="tabBarItem" title="" image="booklet" selectedImage="booklet" id="Bnv-Pv-ILO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mapView" destination="CQ7-K9-KGx" id="jl5-eC-PEG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7l-Yh-pUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1668" y="428"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="BBM-f1-93g">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="CoL-KE-pfT" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="ZnH-Io-ahy">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Ph0-Cb-AKi"/>
-                        <segue destination="z0y-r6-A4W" kind="relationship" relationship="viewControllers" id="R01-Vo-Qh2"/>
-                        <segue destination="VmX-Ok-N9v" kind="relationship" relationship="viewControllers" id="cK8-pa-eHN"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N0E-HC-XKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="610" y="428"/>
+            <point key="canvasLocation" x="1940" y="652"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Connect" width="784" height="248"/>
+        <image name="Login" width="418" height="144"/>
+        <image name="booklet" width="64" height="64"/>
+        <image name="flame" width="64" height="64"/>
+        <image name="gear" width="64" height="64"/>
+        <image name="magnifyingglass" width="64" height="64"/>
+        <image name="signUp" width="586" height="180"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lry-BT-zDs"/>
+        <segue reference="ZCY-Fj-KUT"/>
+        <segue reference="XSH-lB-0m4"/>
+        <segue reference="8vT-D2-5WG"/>
     </inferredMetricsTieBreakers>
 </document>
