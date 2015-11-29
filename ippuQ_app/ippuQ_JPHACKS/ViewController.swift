@@ -300,6 +300,7 @@ class ViewController: UIViewController ,CBCentralManagerDelegate,CBPeripheralDel
     @IBAction func writeData(sender: AnyObject) {
         var value: CUnsignedChar = 0x3e
         let data: NSData = NSData(bytes: &value, length: 1)
+        peripheral.writeValue(data, forCharacteristic: lighterCharacteristicOutput, type: CBCharacteristicWriteType.WithoutResponse)
     }
     
     /** 位置情報取得成功時 */
