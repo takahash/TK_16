@@ -53,3 +53,12 @@ ippuQは、通信機能を備えたライター（以下、ippuQライター）�
 #### ハッカソンで開発した独自機能・技術
 * 独自で開発したものの内容をこちらに記載してください
 * 特に力を入れた部分をファイルリンク、またはcommit_idを記載してください。
+
+* koshianの周辺回路
+![ippuQ_schematics](./materials/sch.png)
+![ippuQ_pcb_a](./materials/koshian_a.jpg)
+![ippuQ_pcb_b](./materials/koshian_b.jpg)
+
+* ライターケースの設計・制作
+3Dプリンタを使ってライターケースを制作．
+設計とデータの設計にはAutodesk Inventorの学生版を使用．
