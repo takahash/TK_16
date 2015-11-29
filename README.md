@@ -55,7 +55,7 @@ ippuQは、通信機能を備えたライター（以下、ippuQライター）�
 * 特に力を入れた部分をファイルリンク、またはcommit_idを記載してください。
 
 * koshianの周辺回路
-![ippuQ_schematics](./materials/sch.jpg)
+![ippuQ_schematics](./materials/sch.png)
 
 * ライターケースの設計・制作
 3Dプリンタを使ってライターケースを制作．
