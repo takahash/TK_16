@@ -39,6 +39,7 @@ class ViewController: UIViewController ,CBCentralManagerDelegate,CBPeripheralDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.writeDataTextField.text = "0"
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "update:", name:"notifyNG", object: nil)
         // フィールドの初期化
         lm = CLLocationManager()
@@ -298,7 +299,9 @@ class ViewController: UIViewController ,CBCentralManagerDelegate,CBPeripheralDel
     
     
     @IBAction func writeData(sender: AnyObject) {
-        var value: CUnsignedChar = 0x3e
+        var str = self.writeDataTextField.text!
+        
+        var value = ledCounter(Int(str)!)
         let data: NSData = NSData(bytes: &value, length: 1)
         peripheral.writeValue(data, forCharacteristic: lighterCharacteristicOutput, type: CBCharacteristicWriteType.WithoutResponse)
     }
@@ -409,6 +412,21 @@ class ViewController: UIViewController ,CBCentralManagerDelegate,CBPeripheralDel
         
         
         
+    }
+    
+    func ledCounter(val:Int)->Int{
+        var x = val << 1
+        var t = ((x >> 2)^x) & 0b001000
+        t|=t<<2
+        
+        x ^= t
+        
+        var t2 = ((x >> 1)^x) & 0b001000
+        t2|=t2<<1
+        
+        x ^= t2
+        return x
+
     }
     
     
