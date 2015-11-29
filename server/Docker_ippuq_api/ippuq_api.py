@@ -85,7 +85,7 @@ class users(Resource):
 
 class places(Resource):
 
-    def get(self):
+    def post(self):
         '''
         [json]
         {user_name:xxx}
