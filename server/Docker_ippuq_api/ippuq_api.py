@@ -131,11 +131,11 @@ class places(Resource):
 
 
 def _connect_mysql():
-    _db = pymysql.connect(host='us-cdbr-iron-east-03.cleardb.net',
-                         port=3306,
-                         user='b959f854f437cd',
-                         passwd='0b53823b',
-                         db='ad_e47199b04766127'
+    _db = pymysql.connect(host='210.140.162.64',
+                         port=13306,
+                         user='ippuq',
+                         passwd='ippuq',
+                         db='ippuq'
                         )
     return _db
 
