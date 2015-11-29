@@ -24,7 +24,7 @@
                                     <action selector="writeData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FBm-3a-dNU"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nuj-vl-E2S">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nuj-vl-E2S">
                                 <rect key="frame" x="82" y="248" width="158" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -317,8 +317,8 @@
         <image name="signUp" width="586" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZCY-Fj-KUT"/>
-        <segue reference="XSH-lB-0m4"/>
         <segue reference="8vT-D2-5WG"/>
+        <segue reference="lFV-dP-Tfu"/>
+        <segue reference="Zjm-E4-VEd"/>
     </inferredMetricsTieBreakers>
 </document>
