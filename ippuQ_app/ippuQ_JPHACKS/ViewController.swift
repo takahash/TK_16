@@ -14,16 +14,20 @@ class ViewController: UIViewController ,CBCentralManagerDelegate,CBPeripheralDel
     var centralManager: CBCentralManager!
     var peripheral: CBPeripheral!
     var isScanning = false
-    var serviceUUID = CBUUID(string: "13333333-3333-3333-3333-333333333337")
-    var characteristicUUID2 = CBUUID(string: "13333333-3333-3333-3333-333333330002")
-    var characteristicUUID1 = CBUUID(string: "13333333-3333-3333-3333-333333330001")
+    var serviceUUID = CBUUID(string: "229BFF00-03FB-40DA-98A7-B0DEF65C2D4B")
+    var characteristicUUID0 = CBUUID(string:"229B3000-03FB-40DA-98A7-B0DEF65C2D4B")//初期化
+    var characteristicUUID2 = CBUUID(string: "229B3002-03FB-40DA-98A7-B0DEF65C2D4B")//LED
+    var characteristicUUID3 = CBUUID(string: "229B3003-03FB-40DA-98A7-B0DEF65C2D4B")//ボタン
+    var characteristicUUID1 = CBUUID(string: "229B3001-03FB-40DA-98A7-B0DEF65C2D4B")//pullup
+    
     @IBOutlet weak var scanButton: UIButton!
-    var lighterCharacteristicRead: CBCharacteristic!
+    var lighterCharacteristicOutput: CBCharacteristic!
     var lighterCharacteristicNotify: CBCharacteristic!
+    var lighterCharacteristicInit: CBCharacteristic!
+    var lighterCharacteristicPullup: CBCharacteristic!
     @IBOutlet weak var writeDataTextField: UITextField!
     var json:NSData!
     var delegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    
     
     
     //GPS
@@ -129,7 +133,7 @@ class ViewController: UIViewController ,CBCentralManagerDelegate,CBPeripheralDel
         for service in services {
             
             // キャラクタリスティック探索開始
-            peripheral.discoverCharacteristics([characteristicUUID1,characteristicUUID2], forService: service)
+            peripheral.discoverCharacteristics([characteristicUUID3,characteristicUUID2,characteristicUUID0,characteristicUUID1], forService: service)
         }
     }
     
@@ -152,11 +156,27 @@ class ViewController: UIViewController ,CBCentralManagerDelegate,CBPeripheralDel
             // Read専用のキャラクタリスティックに限定して読み出す場合
             if characteristic.UUID.isEqual(characteristicUUID2){
                 peripheral.readValueForCharacteristic(characteristic)
-                lighterCharacteristicRead = characteristic
-            }else if characteristic.UUID.isEqual(characteristicUUID1){
+                lighterCharacteristicOutput = characteristic
+                var value: CUnsignedChar = 0x02
+                let data: NSData = NSData(bytes: &value, length: 1)
+                peripheral.writeValue(data, forCharacteristic: self.lighterCharacteristicOutput, type: CBCharacteristicWriteType.WithoutResponse)
+            }else if characteristic.UUID.isEqual(characteristicUUID3){
                 lighterCharacteristicNotify = characteristic
                 peripheral.setNotifyValue(true, forCharacteristic: lighterCharacteristicNotify)
+            }else if characteristic.UUID.isEqual(characteristicUUID0){
+                //初期化処理111110
+                lighterCharacteristicInit = characteristic
+                var value: CUnsignedChar = 0x3e
+                let data: NSData = NSData(bytes: &value, length: 1)
+                peripheral.writeValue(data, forCharacteristic: self.lighterCharacteristicInit, type: CBCharacteristicWriteType.WithoutResponse)
+            }else if characteristic.UUID.isEqual(characteristicUUID1){
+                lighterCharacteristicPullup = characteristic
+                var value: CUnsignedChar = 0x01
+                let data: NSData = NSData(bytes: &value, length: 1)
+                peripheral.writeValue(data, forCharacteristic: self.lighterCharacteristicPullup, type: CBCharacteristicWriteType.WithoutResponse)
+                
             }
+            
             
         }
         
@@ -174,7 +194,7 @@ class ViewController: UIViewController ,CBCentralManagerDelegate,CBPeripheralDel
         }
         
         print("読み出し成功！service uuid: \(characteristic.service.UUID), characteristic uuid: \(characteristic.UUID), value: \(characteristic.value)")
-        if characteristic.UUID.isEqual(characteristicUUID1){
+        if characteristic.UUID.isEqual(characteristicUUID3){
             var byte: CUnsignedChar = 0
             
             // 1バイト取り出す
@@ -278,9 +298,9 @@ class ViewController: UIViewController ,CBCentralManagerDelegate,CBPeripheralDel
     
     
     @IBAction func writeData(sender: AnyObject) {
-        var value: CUnsignedChar = 0x11
+        var value: CUnsignedChar = 0x3e
         let data: NSData = NSData(bytes: &value, length: 1)
-        peripheral.writeValue(data, forCharacteristic: self.lighterCharacteristicRead, type: CBCharacteristicWriteType.WithResponse)
+        peripheral.writeValue(data, forCharacteristic: lighterCharacteristicOutput, type: CBCharacteristicWriteType.WithoutResponse)
     }
     
     /** 位置情報取得成功時 */
