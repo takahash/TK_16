@@ -100,7 +100,7 @@ class places(Resource):
         _user_id = cur.fetchone()[0]
         cur.execute(COUNT_SQL, (_user_id,))
         _count_dict = cur.fetchall()
-        return render_template("test.html", counts=_count_dict), status.HTTP_200_OK
+        return render_template("graph.html", counts=_count_dict), status.HTTP_200_OK
 
     def put(self):
         cur = db.cursor()

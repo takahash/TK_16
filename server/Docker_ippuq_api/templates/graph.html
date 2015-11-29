@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>ippuQ graph</title>
+
+		<script type="text/javascript" src="./js/jquery-1.8.2.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<script type="text/javascript">
+$(function () {
+
+  var date = new Date(); 
+  var today = date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate();
+
+  /*
+  window.onload = function onLoad() {
+    param = GetQueryString();
+    target = document.getElementById("param");
+    target.innerHTML = param["q"];
+  }
+  */
+ 
+  //////////// /ユーザーの本数データの取得 /////////////////
+
+  //昨日のタバコの本数を0で初期化
+  var smoke_num = []; 
+  for (var i = 0; i < 24; i++){
+    smoke_num[i] = 0;
+  }
+
+  /////////////////////////////////////////////////////////
+
+  $('#container').highcharts({
+        title: {
+            text: '本日('+ today +')の喫煙ログ',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: www.redimpulz.com',
+            x: -20
+        },
+        xAxis: {
+            title: {
+                text: '時刻(24h)'
+            },
+            categories: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
+        },
+        yAxis: {
+            title: {
+                text: '吸ったタバコの本数'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '本'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'yakipote',
+            //data: smoke_num
+            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+        }]
+    });
+});
+		</script>
+	</head>
+	<body>
+<script src="./js/highcharts.js"></script>
+<script src="./js/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+	</body>
+</html>
