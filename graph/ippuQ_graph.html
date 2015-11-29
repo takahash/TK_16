@@ -53,9 +53,9 @@ $(function () {
   var param = GetQueryString();
   var user_name = param["user_name"];
 
-  //現時刻までのタバコの本数を0で初期化
+  //昨日のタバコの本数を0で初期化
   var smoke_num = []; 
-  for (var i = 0; i < hours; i++){
+  for (var i = 0; i < 24; i++){
     smoke_num[i] = 0;
   }
 
