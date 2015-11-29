@@ -15,12 +15,9 @@ import time
 app = Flask(__name__)
 api = Api(app)
 
-db = pymysql.connect(host='us-cdbr-iron-east-03.cleardb.net',
-                     port=3306,
-                     user='b959f854f437cd',
-                     passwd='0b53823b',
-                     db='ad_e47199b04766127'
-                    )
+
+
+
 
 class users(Resource):
     '''
@@ -37,6 +34,7 @@ class users(Resource):
         201: created
         400: bad request
         '''
+        db = _connect_mysql()
         cur = db.cursor()
         content_body_dict = request.get_json()
         CHECK_EXIST_USER_SQL = 'SELECT user_name FROM users WHERE user_name = %s AND passwd = %s'
@@ -71,7 +69,10 @@ class users(Resource):
         200: OK
         400: NG
         '''
-
+        
+        
+        
+        db = _connect_mysql()
         cur = db.cursor()
         content_body_dict = request.get_json()
         CHECK_LOGIN_USER_SQL = 'SELECT user_name FROM users WHERE user_name = %s AND passwd = %s'
@@ -84,14 +85,15 @@ class users(Resource):
             return response, status.HTTP_400_BAD_REQUEST
 
 class places(Resource):
-
-    def get(self):
+           
+    def post(self):
         '''
         [json]
         {user_name:xxx}
         [return code]
         200: ok
         '''
+        db = _connect_mysql()
         cur = db.cursor()
         content_body_dict = request.get_json()
         SEARCH_USER_ID_SQL = 'SELECT user_id FROM users WHERE user_name = %s'
@@ -103,6 +105,7 @@ class places(Resource):
         return render_template("test.html", counts=_count_dict), status.HTTP_200_OK
 
     def put(self):
+        db = _connect_mysql()
         cur = db.cursor()
         content_body_dict = request.get_json()
         SEARCH_USER_ID_SQL = 'SELECT user_id FROM users WHERE user_name = %s'
@@ -125,6 +128,16 @@ class places(Resource):
             return '', status.HTTP_200_OK
         except pymysql.OperationalError:
             return '', status.HTTP_500_INTERNAL_SERVER_ERROR
+
+
+def _connect_mysql():
+    _db = pymysql.connect(host='us-cdbr-iron-east-03.cleardb.net',
+                         port=3306,
+                         user='b959f854f437cd',
+                         passwd='0b53823b',
+                         db='ad_e47199b04766127'
+                        )
+    return _db
 
 
 api.add_resource(users, '/users')
