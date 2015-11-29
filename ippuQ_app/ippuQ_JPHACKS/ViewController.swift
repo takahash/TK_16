@@ -25,6 +25,7 @@ class ViewController: UIViewController ,CBCentralManagerDelegate,CBPeripheralDel
     var delegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     
+    
     //GPS
     var lm: CLLocationManager! = nil
     var longitude: CLLocationDegrees!
